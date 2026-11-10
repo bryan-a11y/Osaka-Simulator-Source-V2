@@ -1,0 +1,5 @@
+Start Initial FullScreen Mode...
+Use Hardware Processing
+Try [D3DFMT_X8R8G8B8] [D3DFMT_D32]...Failed
+Try [D3DFMT_X8R8G8B8] [D3DFMT_D24X8]...Success
+Init Success

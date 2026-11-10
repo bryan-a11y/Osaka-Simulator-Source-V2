@@ -1,0 +1,47 @@
+春日歩の通販生活 (tsu_han.exe) - Traducao PT-BR + save automatico + velocidade
+================================================================================
+
+O QUE TEM NESTE PACOTE
+  model\texture01.bin   plaquetas dos 95 itens da loja, preco mantido, e contador "Dinheiro"
+  model\texture02.bin   painel de configuracoes, botoes, caixas de dialogo e titulo
+  dinput8.dll           DLL que adiciona autosave, Ctrl+F4 e velocidade
+  tsuhan_pt.ini         configuracao (intervalo do autosave)
+  fonte_dll\            codigo-fonte da DLL
+
+INSTALACAO
+  1. Feche o jogo e FACA BACKUP de texture01.bin, texture02.bin e tsu_han.dat.
+  2. Copie model\texture01.bin e model\texture02.bin para a pasta "model" do jogo,
+     substituindo os originais.
+  3. Copie dinput8.dll e tsuhan_pt.ini para a pasta do tsu_han.exe (a mesma do exe).
+  4. Abra o jogo normalmente.
+  Para voltar ao original: apague dinput8.dll e restaure os backups.
+
+TECLAS (com a janela do jogo em foco)
+  F5 = 1x   F6 = 2x   F7 = 3x   F8 = 4x   F9 = 5x
+  Num+ / Num-  = sobe / desce a velocidade
+  Ctrl+F4 = salva o progresso e fecha o jogo
+  Alt+F4  = salva o progresso e deixa o Windows fechar o jogo
+  A cada mudanca de velocidade toca um bip curto; o titulo da janela mostra [Nx].
+  O progresso (dinheiro e itens) e gravado em tsu_han.dat a cada 60 s
+  (mude AutoSaveSeconds em tsuhan_pt.ini; 0 desliga).
+
+COMO FUNCIONA
+  O jogo importa DirectInput8Create de dinput8.dll. Esta DLL fica ao lado do exe,
+  repassa essa chamada para o dinput8.dll real do Windows e troca a funcao de tempo
+  (timeGetTime) do jogo por uma que acelera o relogio, le as teclas e dispara o
+  salvamento. O salvamento usa a propria rotina do jogo que grava o tsu_han.dat.
+  O executavel nao foi modificado.
+
+O QUE FOI TESTADO
+  Testado no Wine (Linux): jogo abre com as texturas novas, painel de configuracoes e
+  plaqueta da TV em portugues, autosave grava o tsu_han.dat, F5-F9 e Num+/Num- mudam a
+  velocidade (o dia e a noite passam mais rapido), Ctrl+F4 salva e fecha.
+  NAO testado no Windows de verdade. Alt+F4 nao foi testado.
+
+LIMITACOES
+  - A velocidade acelera as animacoes e o relogio do jogo; os sons nao aceleram.
+  - Continuam em japones: a imagem de abertura (esta dentro do .exe), textos do proprio
+    .exe (titulo da janela, mensagens) e as vozes.
+  - Alguns antivirus desconfiam de dinput8.dll "falsa" em pasta de jogo. O codigo-fonte
+    esta em fonte_dll\ e e curto. Se bloquear, adicione a pasta do jogo as excecoes.
+  - Traducoes incertas: "ジンジャア" ficou "Jinjaa"; "なのだ帽子" ficou "É Chapéu, é Chapéu!".
